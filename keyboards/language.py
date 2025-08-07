@@ -1,13 +1,14 @@
-from telegram import ReplyKeyboardMarkup,KeyboardButton
+from telegram import (
+                     InlineKeyboardButton,
+                     InlineKeyboardMarkup,
+)
 
-def get_language_keyboard()-> ReplyKeyboardMarkup:
-    keyboard = [
-        [KeyboardButton(text='Uzbek'),KeyboardButton(text='English')]
+def get_language_keyboard()-> InlineKeyboardMarkup:
+    inline_keyboard = [
+        [
+            InlineKeyboardButton(text='Uzbek',callback_data='lang:uz'),
+            InlineKeyboardButton(text='English',callback_data='lang:en')
+        ]
     ]
-    return ReplyKeyboardMarkup(
-        keyboard=keyboard,
-        resize_keyboard=True,
-        one_time_keyboard=True
-    )
-
+    return InlineKeyboardMarkup(inline_keyboard)
 
